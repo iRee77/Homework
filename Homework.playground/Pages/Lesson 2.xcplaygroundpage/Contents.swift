@@ -106,7 +106,7 @@ var unionArrayList = arrayList1 + arrayList2
 unionArrayList.sort(by: <)
 
 //Дан массив с целыми числами. Найдите два числа, которые в сумме дают 0. Если таких нет, то верните пустой массив. Если есть несколько пар, верните любую. Задача ставится в условиях, что она решается без применения вспомогательных функций и алгоритмов сортировки.
-let arrayListForSum = [0, -1, 2, 9, 1, 4, -1, 0, 0]
+let arrayListForSum = [0, -1, 2, 9, 1, 4, -1, -2, 2]
 var arraySum: [Int] = []
 for i in 0..<arrayListForSum.count {
     for j in (i + 1)..<arrayListForSum.count {
@@ -115,7 +115,6 @@ for i in 0..<arrayListForSum.count {
         }
         if arrayListForSum[i] + arrayListForSum[j] == 0 {
             arraySum = [arrayListForSum[i], arrayListForSum[j]]
-            break
         }
     }
 }
