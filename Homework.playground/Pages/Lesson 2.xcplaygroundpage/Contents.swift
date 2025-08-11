@@ -75,8 +75,8 @@ cities["Москва"] = "13,2"
 let arrayNumbersTest = [4, 0, 5, 4, 1, 9, 3]
 var dictNumber: [Int: Int] = [:]
 for number in arrayNumbersTest {
-    if dictNumber.keys.contains(number) {
-        dictNumber[number]! += 1
+    if let count = dictNumber[number] {
+        dictNumber[number] = count + 1
     }
     else {
         dictNumber[number] = 1
@@ -106,7 +106,7 @@ var unionArrayList = arrayList1 + arrayList2
 unionArrayList.sort(by: <)
 
 //Дан массив с целыми числами. Найдите два числа, которые в сумме дают 0. Если таких нет, то верните пустой массив. Если есть несколько пар, верните любую. Задача ставится в условиях, что она решается без применения вспомогательных функций и алгоритмов сортировки.
-let arrayListForSum = [0, -1, 2, 9, 1, 4, -1, -2, 2]
+let arrayListForSum = [0, 0, 2, 9, 1, 4, 0, 0, 2]
 var arraySum: [Int] = []
 for i in 0..<arrayListForSum.count {
     for j in (i + 1)..<arrayListForSum.count {
@@ -120,7 +120,7 @@ for i in 0..<arrayListForSum.count {
 }
 
 //Дан словарь, где ключи - это имена студентов, а значения - это их оценки. Выведите имена студентов, у которых оценка выше 85. Задачу необходимо решить без использования вспомогательных функций и алгоритмов сортировки.
-let studentsDict = ["Екатерина": 32,  "Дмитрий": 0, "Алиса": 100, "Константин": 85, "Дарья": 84]
+let studentsDict = ["Екатерина": 32,  "Дмитрий": 0, "Алиса": 100, "Константин": 85, "Дарья": 86]
 for (studentName, grade) in studentsDict {
     if grade > 85 {
         print(studentName)
