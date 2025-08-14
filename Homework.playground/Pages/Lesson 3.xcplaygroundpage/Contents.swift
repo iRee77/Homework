@@ -95,7 +95,7 @@ let avgList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 let avgValue = avgList.reduce(0, +) / avgList.count
 for i in avgList {
     if i > avgValue {
-        //        print("Элемент массива \(i) больше среднего значение суммы элементов массива")
+                print("Элемент массива \(i) больше среднего значение суммы элементов массива")
     }
 }
 
@@ -103,13 +103,13 @@ for i in avgList {
 range1_100
 for i in range1_100 {
     if (i % 3 == 0) && (i % 5 == 0) {
-        //        print("FizzBuzz")
+                print("FizzBuzz")
     } else if i % 3 == 0 {
-        //        print("Fizz")
+                print("Fizz")
     } else if i % 5 == 0 {
-        //        print("Buzz")
+                print("Buzz")
     } else {
-        //       print(i)
+               print(i)
     }
 }
 
