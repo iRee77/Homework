@@ -222,9 +222,9 @@ if checkNumb < 2 {
 let inputFactorialNumb = 4
 var factorial = 1
 if inputFactorialNumb < 0 {
-    print("Введите число от нуля до n")
+    print("Введите число больше или равное 0")
 } else if inputFactorialNumb == 0 {
-    print("Факториал нуля равен 1")
+    print("0! = 1")
 } else {
     for i in 1...inputFactorialNumb {
         factorial *= i
@@ -250,7 +250,7 @@ if inputFibonacciNumb == 0 {
     }
     print(fibonacci)
 }
-print("____________")
+
 //5. Напишите программу, которая по заданному числу N выводит все простые числа до N. Для этого используйте вложенные циклы и условные операторы для проверки делителей каждого числа.
 let inputPrimeNumb = 23
 var primeArray = [Int]()
