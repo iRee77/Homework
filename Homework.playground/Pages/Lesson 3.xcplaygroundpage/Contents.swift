@@ -252,16 +252,21 @@ if inputFibonacciNumb == 0 {
 }
 
 //5. Напишите программу, которая по заданному числу N выводит все простые числа до N. Для этого используйте вложенные циклы и условные операторы для проверки делителей каждого числа.
-let inputPrimeNumb = 23
+
+// Первое решение. Решето Эратозбека (через позор и боль, но работает)
+let primeToNumb = 3
 var primeArray = [Int]()
 
-if inputPrimeNumb <= 1 {
+if primeToNumb <= 1 {
     primeArray = []
     print(primeArray)
 } else {
-    primeArray = Array(2...inputPrimeNumb)
-    let sqrtNumb = Int(sqrt(Double(inputPrimeNumb)))
+    primeArray = Array(2...primeToNumb)
+    let sqrtNumb = Int(sqrt(Double(primeToNumb)))
     for i in 0...sqrtNumb {
+        if i >= primeArray.count {
+            continue
+        }
         if primeArray[i] == 0 {
             continue
         } else {
@@ -278,5 +283,34 @@ if inputPrimeNumb <= 1 {
             primeNumbers.append(primeArray[i])
         }
     }
-    print(primeNumbers)
+    print("Решето Эратозбека \(primeNumbers)")
+}
+
+// Второе решение. Классическое Решето Эратосфена (красиво-модно-лаконично)
+var sieve = [Bool]()
+
+if primeToNumb <= 1 {
+    sieve = []
+    print(sieve)
+} else {
+    var sqrtNumb = Int(sqrt(Double(primeToNumb))) + 1
+    var primeNumbersSieve = [Int]()
+    for i in 0...primeToNumb {
+        sieve.append(true)
+    }
+    sieve[0] = false
+    sieve[1] = false
+    for i in 2...sqrtNumb{
+        for j in (i+1)..<sieve.count{
+            if j % i == 0 {
+                sieve[j] = false
+            }
+        }
+    }
+    for (i,b) in sieve.enumerated() {
+        if b == true {
+            primeNumbersSieve.append(i)
+        }
+    }
+    print("Решето Эратосфена \(primeNumbersSieve)")
 }
