@@ -33,11 +33,11 @@ if checkNumber % 2 == 0 {
 switch checkNumber {
 case 90...100:
     print("\(checkNumber) - это A")
-case 80...90:
+case 80..<90:
     print("\(checkNumber) - это B")
-case 70...80:
+case 70..<80:
     print("\(checkNumber) - это C")
-case 60...70:
+case 60..<70:
     print("\(checkNumber) - это D")
 case 0..<60:
     print("\(checkNumber) - это F")
