@@ -322,15 +322,51 @@ func isPalindrome (word: String) -> Bool {
 }
 isPalindrome(word: "а роза упала на лапу Азора!")
 
+var tempArray1 = [2,3,4,5]
+tempArray1.remove(at: 0)
+tempArray1
+tempArray1.dropFirst()
+tempArray1
+tempArray1.removeFirst()
+tempArray1
 // Домашняя задача 2: есть два отсортированных массива чисел, нужно их соединить в один отсортированный массив с помощью рекурсии
-func sortedArr(array1: [Int], array2: [Int]) -> [Int] {
-    return [0]
+func mergedArrays(array1: [Int], array2: [Int]) -> [Int] {
+    guard !array1.isEmpty else { return array2}
+    guard !array2.isEmpty else { return array1}
+    var result = [Int]()
+    
+    if let first1 = array1.first {
+//        print("first1: \(first1)")
+        if let first2 = array2.first {
+//            print("first2: \(first2)")
+            if first1 < first2 {
+                result.append(first1)
+//                print("true: append(first1): \(first1)")
+//                print("Убираем: \(array1[0])")
+//                print("Отдаём в функцию: \(Array(array1.dropFirst())) и \(array2)")
+                result = result + mergedArrays(array1: Array(array1.dropFirst()), array2: array2)
+//                print("Текущий result: \(result)")
+            } else {
+                result.append(first2)
+//                print("false: append(first2): \(first2)")
+//                print("Убираем: \(array2[0])")
+//                print("Отдаём в функцию: \(array1) и \(Array(array2.dropFirst()))")
+                result = result + mergedArrays(array1: array1, array2: Array(array2.dropFirst()))
+//                print("Текущий result: \(result)")
+            }
+        }
+    }
+    return result
 }
-
-
-[1, 3, 5, 7]
-[2, 4, 6, 8]
-
+mergedArrays(array1: [1, 3, 5, 7], array2: [2, 4, 6, 8])
+mergedArrays(array1: [1, 1, 1, 1], array2: [1, 1, 1, 1])
+mergedArrays(array1: [1, 3], array2: [2, 4, 6, 8])
+mergedArrays(array1: [1, 3, 5, 7], array2: [2, 4])
 
 // Написать свой flatMap, который разворачивает массивы любого уровня неравномерной вложенности
-// Например: [[[[1, 2, 3]]], [[4, 5, 6]], [7, 8, 9]] -> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+// Например: [ [[[1, 2, 3]]], [[4, 5, 6]], [7, 8, 9]] -> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+var test = [ [[[1, 2, 3]]], [[4, 5, 6]], [7, 8, 9]]
+test[0]
+func flattenArrays(array: [Int]) -> [Int] {
+    
+}
